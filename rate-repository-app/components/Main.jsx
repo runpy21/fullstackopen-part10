@@ -1,9 +1,9 @@
-import { StatusBar, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import RepositoryList from './RepositoryList'
+import AppBar from './AppBar'
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight || 0,
     flex: 1,
   },
 })
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
 const Main = () => {
   return (
     <View style={styles.container}>
+      <AppBar />
       <RepositoryList />
     </View>
   )
