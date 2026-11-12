@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
-import theme from '../theme'
+import { StyleSheet, View } from 'react-native'
 import convertToThousands from '../utils/numberConverter'
+import Text from './Text'
 
 const styles = StyleSheet.create({
   container: {
@@ -10,13 +10,6 @@ const styles = StyleSheet.create({
   },
   item: {
     alignItems: 'center',
-  },
-  value: {
-    fontWeight: theme.fontWeights.bold,
-    fontSize: theme.fontSizes.subheading,
-  },
-  label: {
-    color: theme.colors.textSecondary,
   },
 })
 
@@ -32,8 +25,10 @@ const RepositoryStats = ({ stargazersCount, forksCount, reviewCount, ratingAvera
     <View style={styles.container}>
       {stats.map(({ label, value }) => (
         <View key={label} style={styles.item}>
-          <Text style={styles.value}>{convertToThousands(value)}</Text>
-          <Text style={styles.label}>{label}</Text>
+          <Text fontSize="subheading" fontWeight="bold">
+            {convertToThousands(value)}
+          </Text>
+          <Text color="textSecondary">{label}</Text>
         </View>
       ))}
     </View>

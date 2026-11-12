@@ -1,6 +1,7 @@
-import { Image, StyleSheet, View, Text } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import theme from '../theme'
 import RepositoryStats from './RepositoryStats'
+import Text from './Text'
 
 const styles = StyleSheet.create({
   container: {
@@ -20,13 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 5,
   },
-  fullName: {
-    fontWeight: theme.fontWeights.bold,
-    fontSize: theme.fontSizes.subheading,
-  },
-  description: {
-    color: theme.colors.textSecondary,
-  },
   language: {
     alignSelf: 'flex-start',
     backgroundColor: theme.colors.primary,
@@ -42,12 +36,11 @@ const RepositoryItem = ({ item }) => {
     <View style={styles.container}>
       <View style={styles.repositoryInfo}>
         <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
-
         <View style={styles.textContainer}>
-          <Text style={styles.fullName}>{item.fullName}</Text>
-
-          <Text style={styles.description}>{item.description}</Text>
-
+          <Text fontWeight="bold" fontSize="subheading">
+            {item.fullName}
+          </Text>
+          <Text color="textSecondary">{item.description}</Text>
           <Text style={styles.language}>{item.language}</Text>
         </View>
       </View>
